@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// se pueden importar imagenes y guardarlas en variables
+//import bienvenida from './saludos'   primera manera de importar, el primer parametro del import es la variable en la que se almacena
+// este metodo siempre importa el export default
+import { bienvenida as saludo, despedida } from './saludos'  //segunda menera de importar
+// este metodo es mucho mas especifico
+// el as hace que se le pueda poner alias a las variables que se importan
+import { Tutores } from './ejemplos/Tutores'
+import { Clicker } from './components/Clicker';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  saludo();
+  despedida();
+  
+  const profe = 'Conrado Lanusse'
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <br/> {/* Los elementos como el br o img que se tienen que cerrar para no causar problemas */}
+      <h1>{profe}</h1> {/* usar la // hace inserciones javascript en xml se pueden hacer eventos dentro de xml se puede invocar funciones en linea*/}
+
+      <Tutores />
+
+      <Clicker/>
+      
     </>
   )
 }
+
+// un componente es una funcion que retorna un bloque de codigo jsx
+
 
 export default App

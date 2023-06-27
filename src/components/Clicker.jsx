@@ -1,22 +1,22 @@
 import { useState } from "react"
 
 
-export const Clicker = () =>{ 
+export const Clicker = () => {
 
     const [counter, setCounter] = useState(1)
     const [saludo, setSaludo] = useState(true)
 
     //let counter = 0
 
-    const clickear = () =>{
+    const clickear = () => {
         setCounter(counter + 1)
     }
 
-    const cambiarSaludo = () =>{
+    const cambiarSaludo = () => {
         setSaludo(!saludo)
     }
 
-    return(
+    return (
         <div>
             <h2>Clicker</h2>
             <hr />
@@ -24,7 +24,7 @@ export const Clicker = () =>{
             <p>Clicks: {counter}</p>
             <hr />
             <button onClick={cambiarSaludo}>Saludar</button>
-            <p className="{saludar ? 'Hola' : 'Chau'}">{ saludo ? 'Hola mundo' : 'Chau mundo' }</p> {/* Render condicional */}
+            <p className={saludo ? 'Hola' : 'Chau'}>{saludo ? 'Hola mundo' : 'Chau mundo'}</p> {/* Render condicional */}
         </div>
     )
 }

@@ -10,6 +10,7 @@ export const Tutores = () =>{ // todos los componentes empiezan con mayusculas
         <ul>
             <Usuario nombre="Juan Lanusse" rol="Profesor" edad={22}/>
             <Usuario nombre="Fede Luk" rol="Tutor" edad={64}/>
+            <Usuario nombre="Fede Luk" rol="Tutor" edad={64}/>
         </ul>
     </div>
     ) 

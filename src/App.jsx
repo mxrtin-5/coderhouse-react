@@ -5,12 +5,18 @@ import { bienvenida as saludo, despedida } from './saludos'  //segunda menera de
 // este metodo es mucho mas especifico
 // el as hace que se le pueda poner alias a las variables que se importan
 import { Tutores } from './ejemplos/Tutores'
-import { Clicker } from './components/Clicker';
-import { Container, Titulo } from './components/Patrones';
-import { Item } from './components/Patrones';
-import { Contenedor } from './components/Contenedor';
-import {MiBoton} from './components/MiBoton'
-import { Nosotros } from './components/Nosotros';
+import { Clicker } from './components/Clicker/Clicker';
+import { Container, Titulo } from './components/Patrones/Patrones';
+import { Item } from './components/Patrones/Patrones';
+import { Contenedor } from './components/Contenedor/Contenedor';
+import {MiBoton} from './components/MiBoton/MiBoton'
+import { Nosotros } from './components/Nosotros/Nosotros';
+import { UseRef, UseRef2 } from './components/UseRef/UseRef';
+import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+
 
 function App() {
 
@@ -30,11 +36,15 @@ function App() {
   return (
 
     <>
+
+    
       <br/> {/* Los elementos como el br o img que se tienen que cerrar para no causar problemas */}
       <h1>{profe}</h1> {/* usar la // hace inserciones javascript en xml se pueden hacer eventos dentro de xml se puede invocar funciones en linea*/}
       
+      <button className='btn btn-primary'>Click me</button>
+      <ItemListContainer/>
       
-      <MiBoton color="blueviolet" click={saludar}>
+      {/*<MiBoton color="blueviolet" click={saludar}>
         Click me <img src='/vite.svg'></img>
       </MiBoton>
       <MiBoton color="green" click={despedida1}>
@@ -44,12 +54,25 @@ function App() {
       <Tutores />
       <Titulo/>
       <Item />
+      <hr />
       <Container />
       </Contenedor>
 
+      <hr />
+
       <Clicker/>
 
+      <hr />
+
       <Nosotros/>
+
+      <hr />
+
+      <UseRef/>
+
+      <hr />
+
+      <UseRef2/>*/}
       
     </>
   )

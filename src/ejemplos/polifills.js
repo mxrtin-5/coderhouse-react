@@ -1,4 +1,5 @@
-const users = [{
+const users = [
+{
     id: 1,
     nombre: 'fede',
     edad: 34

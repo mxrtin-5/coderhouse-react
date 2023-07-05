@@ -1,4 +1,4 @@
-import { Usuario } from "../components/Usuario"
+import { Usuario } from "../components/Usuario/Usuario"
 
 export const Tutores = () =>{ // todos los componentes empiezan con mayusculas
     // un modulo por componente

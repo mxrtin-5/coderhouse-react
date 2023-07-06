@@ -15,6 +15,8 @@ import { UseRef, UseRef2 } from './components/UseRef/UseRef';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { PokeApi } from './components/PokeApi/PokeApi';
+import { PokeList } from './components/PokeApi/PokeList';
 
 
 
@@ -43,6 +45,8 @@ function App() {
       
       <button className='btn btn-primary'>Click me</button>
       <ItemListContainer/>
+      <PokeApi/>
+      <PokeList/>
       
       {/*<MiBoton color="blueviolet" click={saludar}>
         Click me <img src='/vite.svg'></img>

@@ -26,6 +26,15 @@ export const ItemListContainer = () => {
 
     console.log(productos)
 
+
+    useEffect(()=>{
+        fetch('https://jsonplaceholder.typicode.com/posts')
+            .then((resp) =>resp.json())
+            .then ((data) =>{
+                console.log(data)
+            })
+    }, [])
+
     
 
     return (

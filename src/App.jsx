@@ -47,11 +47,11 @@ function App() {
       
       <button className='btn btn-primary'>Click me</button>
       {/* <ItemListContainer/> */}
-      <ItemList2 saludo='Hola mundo'/>
+      {/* <ItemList2 saludo='Hola mundo'/> */}
       {/* <Contacto /> */}
-      <Contacto2/>
-      {/* <PokeApi/>
-      <Posts/> */}
+      {/* <Contacto2/> */}
+      <PokeApi/>
+      <Posts/> 
       {/* <PokeList/>  */}
       
       {/*<MiBoton color="blueviolet" click={saludar}>

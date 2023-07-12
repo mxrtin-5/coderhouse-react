@@ -19,7 +19,7 @@ import { PokeApi } from './components/PokeApi/PokeApi';
 import { PokeList } from './components/PokeApi/PokeList';
 import { Contacto } from './components/Contacto/Contacto';
 import { Posts } from './components/Posts/Posts';
-
+import ItemList2, { Contacto2 } from './ejemplos/hoc/ItemList2';
 
 
 function App() {
@@ -47,11 +47,11 @@ function App() {
       
       <button className='btn btn-primary'>Click me</button>
       {/* <ItemListContainer/> */}
-
-      <Contacto />
-
-      <PokeApi/>
-      <Posts/>
+      <ItemList2 saludo='Hola mundo'/>
+      {/* <Contacto /> */}
+      <Contacto2/>
+      {/* <PokeApi/>
+      <Posts/> */}
       {/* <PokeList/>  */}
       
       {/*<MiBoton color="blueviolet" click={saludar}>

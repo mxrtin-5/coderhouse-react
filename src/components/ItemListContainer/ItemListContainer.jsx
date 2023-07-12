@@ -25,8 +25,8 @@ export const ItemListContainer = () => {
         <section>
             {
                 loading 
-                ? <h2>Cargando...</h2>
-                : <ItemList productos={productos}/>
+                    ? <h2>Cargando...</h2>
+                    : <ItemList productos={productos}/>
             }
         </section>
     )

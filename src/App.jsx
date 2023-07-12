@@ -17,6 +17,8 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { PokeApi } from './components/PokeApi/PokeApi';
 import { PokeList } from './components/PokeApi/PokeList';
+import { Contacto } from './components/Contacto/Contacto';
+import { Posts } from './components/Posts/Posts';
 
 
 
@@ -44,9 +46,13 @@ function App() {
       <h1>{profe}</h1> {/* usar la // hace inserciones javascript en xml se pueden hacer eventos dentro de xml se puede invocar funciones en linea*/}
       
       <button className='btn btn-primary'>Click me</button>
-      <ItemListContainer/>
+      {/* <ItemListContainer/> */}
+
+      <Contacto />
+
       <PokeApi/>
-      <PokeList/>
+      <Posts/>
+      {/* <PokeList/>  */}
       
       {/*<MiBoton color="blueviolet" click={saludar}>
         Click me <img src='/vite.svg'></img>

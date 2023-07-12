@@ -1,8 +1,9 @@
-import { PedirDatos } from '../../helpers/PedirDatos'
+import { pedirDatos } from '../../helpers/PedirDatos'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import './ItemListContainer.css'
 import { ItemList } from '../ItemList/ItemList'
+import { useProductos } from '../../hooks/useProductos'
 
 
 
@@ -10,37 +11,23 @@ import { ItemList } from '../ItemList/ItemList'
 
 export const ItemListContainer = () => {
 
-    const [productos, setProductos] = useState([]) // a useState se le pasa el valor inicial que va a tomar 'productos'
+    const {productos, loading} = useProductos() // asi se desestructura y se extrae el valor de productos
+
+    console.log(loading, productos )
 
 
-    useEffect(() => {
-        PedirDatos()
-            .then((res) => {
-                setProductos(res)
-                console.log(productos)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }, []);
-
-    console.log(productos)
 
 
-    useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then((resp) =>resp.json())
-            .then ((data) =>{
-                console.log(data)
-            })
-    }, [])
 
-    
 
     return (
 
         <section>
-            <ItemList productos={productos}/>
+            {
+                loading 
+                ? <h2>Cargando...</h2>
+                : <ItemList productos={productos}/>
+            }
         </section>
     )
 }

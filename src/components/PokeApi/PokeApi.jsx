@@ -1,21 +1,16 @@
 import { useEffect, useState } from "react";
+import { useFetch } from "../../hooks/useFetch";
 
 
 export const PokeApi = () => {
 
-    const [pokemon, setPokemon] = useState(null)// se establece el valor de pokemon en null ya que en un inicio no hay valores
+    // const [pokemon, setPokemon] = useState(null)// se establece el valor de pokemon en null ya que en un inicio no hay valores
     const [id, setId] = useState(1)
 
+    const { data: pokemon } = useFetch(`https://pokeapi.co/api/v2/pokemon/${id}`, [id])
 
-    useEffect(() => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-            .then((response) => response.json())
-            .then((data) => {
-                setPokemon(data)
-            })
-    }, [id]);
 
-    // s no se usara un useEffecct habria que hacer el mismo fetch en los botones
+    // si no se usara un useEffecct habria que hacer el mismo fetch en los botones
 
 const handleSiguiente = () => setId(id + 1)
 const handleAnterior = () => id > 1 && setId(id - 1)

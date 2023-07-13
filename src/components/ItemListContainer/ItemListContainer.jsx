@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import './ItemListContainer.css'
 import { ItemList } from '../ItemList/ItemList'
 import { useProductos } from '../../hooks/useProductos'
-
+import { useParams } from 'react-router-dom'
 
 
 
@@ -15,10 +15,8 @@ export const ItemListContainer = () => {
 
     console.log(loading, productos )
 
-
-
-
-
+    const params = useParams()
+    console.log(params)
 
     return (
 

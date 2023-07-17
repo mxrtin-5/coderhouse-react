@@ -12,7 +12,7 @@ export const Header = () =>{
                 <h2 className='title'>AtomicMoonlight</h2>
 
                 <ul>
-                    <li className='li active'><Link to="/"></Link>Home</li>
+                    <li className='li active'><Link to="/">Home</Link></li>
                     <li className='li'><Link to="/">Services</Link></li>
                     <li className='li'><Link to="/pokeapi">Pokeapi</Link></li>
                     <li className='li'><Link to="/">About</Link></li>

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import './ItemListContainer.css'
 import { ItemList } from '../ItemList/ItemList'
-import { useProductos } from '../../hooks/useProductos'
+//import { useProductos } from '../../hooks/useProductos'
 import { useParams } from 'react-router-dom'
 
 
@@ -11,12 +11,29 @@ import { useParams } from 'react-router-dom'
 
 export const ItemListContainer = () => {
 
-    const {productos, loading} = useProductos() // asi se desestructura y se extrae el valor de productos
+    const [productos, setProductos] = useState([])
+    const [loading, setLoading] = useState(true)
 
-    console.log(loading, productos )
+    const {categoryId} = useParams()
+    console.log(categoryId)
 
-    const params = useParams()
-    console.log(params)
+    useEffect(()=>{
+        setLoading(true)
+
+        pedirDatos()
+        .then(r=> {
+            if(categoryId){
+                setProductos( r.filter(prod => prod.category === categoryId) )
+            }else{
+                setProductos(r)
+            }
+            
+        })
+        .catch(e => console.log(e))
+        .finally(()=>{
+            setLoading(false)
+        })
+    }, [categoryId]);
 
     return (
 

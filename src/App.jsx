@@ -22,26 +22,12 @@ import { Posts } from './components/Posts/Posts';
 import ItemList2, { Contacto2 } from './ejemplos/hoc/ItemList2';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Header } from './components/Header/Header';
+import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 
 
 function App() {
 
-  saludo();
-  despedida();
-
-  const saludar = () =>{
-    console.log('Hola')
-  }
-
-  const despedida1 = () =>{
-    console.log("Adiós")
-  }
-  
-  const profe = 'Conrado Lanusse'
-
   return (
-
-    
 
     <BrowserRouter>
 
@@ -52,22 +38,22 @@ function App() {
 
       <Route path='/' element={ <ItemListContainer/> } />
       <Route path='/contacto' element={ <Contacto2/> } />
-      <Route path='/productos/:categoryId' element={ <Contacto2/> } />
-      <Route path='/pokeapi' element={ <PokeApi/> }   />
+      <Route path='/pokeapi' element={ <PokeApi/> } />
+      <Route path='/productos/:categoryId' element={ <ItemListContainer/> } />
+      <Route path='/detail/:itemId' element={ <ItemDetailContainer/> }   />
       <Route path='*' element={ <Navigate to='/' /> } />
 
     </Routes>
 
             
-        <br/> {/* Los elementos como el br o img que se tienen que cerrar para no causar problemas */}
-        <h1>{profe}</h1> {/* usar la // hace inserciones javascript en xml se pueden hacer eventos dentro de xml se puede invocar funciones en linea*/}
+        {/* <br/> Los elementos como el br o img que se tienen que cerrar para no causar problemas */}
+        {/* <h1>{profe}</h1> usar la // hace inserciones javascript en xml se pueden hacer eventos dentro de xml se puede invocar funciones en linea */}
 
-        <button className='btn btn-primary'>Click me</button>
+        {/* <button className='btn btn-primary'>Click me</button> */}
         
         {/* <ItemList2 saludo='Hola mundo'/> */}
         {/* <Contacto /> */}
 
-       
         {/* <Posts/>  */}
         {/* <PokeList/>  */}
 
@@ -104,7 +90,7 @@ function App() {
 
       </BrowserRouter>
 
-   
+
   )
 }
 

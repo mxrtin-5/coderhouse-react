@@ -8,7 +8,7 @@ export const ItemList = ({productos}) => {
 
         <div className="container">
 
-            <div className='row'>
+            <div className='flex flex-row flex-wrap justify-center gap-2'>
                 {
                     productos.map((el) => <ItemCard item={el}/>)
                 }

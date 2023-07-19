@@ -38,5 +38,28 @@
         "price": 65,
         "img": "https://dummyimage.com/200x200/000/fff",
         "category": "carniceria"
+    },
+    {
+        "id": 6,
+        "name":"Item seis",
+        "descripcion": "Lorem...",
+        "price": 65,
+        "img": "https://dummyimage.com/200x200/000/fff",
+        "category": "carniceria"
+    },{
+        "id": 7,
+        "name":"Item siete",
+        "descripcion": "Lorem...",
+        "price": 65,
+        "img": "https://dummyimage.com/200x200/000/fff",
+        "category": "carniceria"
+    },
+    {
+        "id": 8,
+        "name":"Item ocho",
+        "descripcion": "Lorem...",
+        "price": 65,
+        "img": "https://dummyimage.com/200x200/000/fff",
+        "category": "carniceria"
     }
 ]

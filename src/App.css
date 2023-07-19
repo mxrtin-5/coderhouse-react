@@ -1,6 +1,4 @@
-
-utton{
-  width: 100px;
-  height: 40px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 

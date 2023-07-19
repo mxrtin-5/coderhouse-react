@@ -35,7 +35,7 @@ export const Contacto2 = withProductsData(({productos, loading}) =>{
 
     return(
     <div>
-        contacto 2
+        <h2 className="text-blue-800">Contacto 2</h2>
     </div>
     )
 })

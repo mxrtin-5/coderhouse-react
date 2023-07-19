@@ -14,7 +14,7 @@ import { Nosotros } from './components/Nosotros/Nosotros';
 import { UseRef, UseRef2 } from './components/UseRef/UseRef';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 import { PokeApi } from './components/PokeApi/PokeApi';
 import { PokeList } from './components/PokeApi/PokeList';
 import { Contacto } from './components/Contacto/Contacto';

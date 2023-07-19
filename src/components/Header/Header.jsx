@@ -1,5 +1,5 @@
+import { Menu } from '../Menu/Menu'
 import './Header.css'
-import { Link } from 'react-router-dom'
 
 
 export const Header = () =>{
@@ -7,21 +7,11 @@ export const Header = () =>{
     return(
 
         <header>
-            <nav className='navbar'>
-
+            <div className='header_container'>
                 <h2 className='title'>AtomicMoonlight</h2>
-
-                <ul>
-                    <li className='li active'><Link to="/">Home</Link></li>
-                    <li className='li'><Link to="/">Services</Link></li>
-                    <li className='li'><Link to="/pokeapi">Pokeapi</Link></li>
-                    <li className='li'><Link to="/">About</Link></li>
-                    <li className='li'><Link to="/contacto">Contact</Link></li>
-                </ul>
-
-
-            </nav>
-
+                
+                <Menu />
+            </div>  
         </header>
 
         

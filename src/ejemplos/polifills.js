@@ -39,10 +39,10 @@ function filtrar(arr, fn){ // es como el filter
     return filter
 }
 
-const resultado = encontrar(users, (user) => user.nombre === 'juan');
-console.log(resultado);
-const resultado1 = filtrar(users, (user) => user.nombre === 'juan');
-console.log(resultado1);
+// const resultado = encontrar(users, (user) => user.nombre === 'juan');
+// console.log(resultado);
+// const resultado1 = filtrar(users, (user) => user.nombre === 'juan');
+// console.log(resultado1);
 
 //crear metodos para arrays
 
@@ -55,5 +55,5 @@ Array.prototype.encontrar = function encontrar(fn) {
     }
 }
 
-console.log(users.encontrar((user) => user.id === 2));
+// console.log(users.encontrar((user) => user.id === 2));
 

@@ -14,7 +14,7 @@ import { Nosotros } from './components/Nosotros/Nosotros';
 import { UseRef, UseRef2 } from './components/UseRef/UseRef';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import './App.css'
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { PokeApi } from './components/PokeApi/PokeApi';
 import { PokeList } from './components/PokeApi/PokeList';
 import { Contacto } from './components/Contacto/Contacto';
@@ -23,72 +23,95 @@ import ItemList2, { Contacto2 } from './ejemplos/hoc/ItemList2';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
+import { CartContext } from './context/CartContext';
+import { useState } from 'react';
 
 
 function App() {
 
+  const [cart, setCart] = useState([])
+  console.log(cart)
+
+  const agregarAlCarrito = (item) =>{
+    setCart([...cart, item])
+  }
+
+  const isInCart = (id) =>{
+    return cart.some((item) => item.id === id)
+  }
+
   return (
 
-    <BrowserRouter>
+    <CartContext.Provider value={{
+      cart,
+      agregarAlCarrito,
+      isInCart
+    }}>
+
+      <BrowserRouter>
 
 
-    <Header />
+      <Header />
 
-    <Routes>
+        <Routes>
 
-      <Route path='/' element={ <ItemListContainer/> } />
-      <Route path='/contacto' element={ <Contacto2/> } />
-      <Route path='/pokeapi' element={ <PokeApi/> } />
-      <Route path='/productos/:categoryId' element={ <ItemListContainer/> } />
-      <Route path='/detail/:itemId' element={ <ItemDetailContainer/> }   />
-      <Route path='*' element={ <Navigate to='/' /> } />
+          <Route path='/' element={ <ItemListContainer/> } />
+          <Route path='/contacto' element={ <Contacto/> } />
+          <Route path='/pokeapi' element={ <PokeApi/> } />
+          <Route path='/productos/:categoryId' element={ <ItemListContainer/> } />
+          <Route path='/detail/:itemId' element={ <ItemDetailContainer/> }   />
+          <Route path='*' element={ <Navigate to='/' /> } />
 
-    </Routes>
+        </Routes>
 
-            
-        {/* <br/> Los elementos como el br o img que se tienen que cerrar para no causar problemas */}
-        {/* <h1>{profe}</h1> usar la // hace inserciones javascript en xml se pueden hacer eventos dentro de xml se puede invocar funciones en linea */}
+              
+          {/* <br/> Los elementos como el br o img que se tienen que cerrar para no causar problemas */}
+          {/* <h1>{profe}</h1> usar la // hace inserciones javascript en xml se pueden hacer eventos dentro de xml se puede invocar funciones en linea */}
 
-        {/* <button className='btn btn-primary'>Click me</button> */}
-        
-        {/* <ItemList2 saludo='Hola mundo'/> */}
-        {/* <Contacto /> */}
+          {/* <button className='btn btn-primary'>Click me</button> */}
+          
+          {/* <ItemList2 saludo='Hola mundo'/> */}
+          {/* <Contacto /> */}
 
-        {/* <Posts/>  */}
-        {/* <PokeList/>  */}
+          {/* <Posts/>  */}
+          {/* <PokeList/>  */}
 
-        {/*<MiBoton color="blueviolet" click={saludar}>
-          Click me <img src='/vite.svg'></img>
-        </MiBoton>
-        <MiBoton color="green" click={despedida1}>
-          Click me <img src='/vite.svg'></img>
-        </MiBoton>
-        <Contenedor>
-        <Tutores />
-        <Titulo/>
-        <Item />
-        <hr />
-        <Container />
-        </Contenedor>
+          {/*<MiBoton color="blueviolet" click={saludar}>
+            Click me <img src='/vite.svg'></img>
+          </MiBoton>
+          <MiBoton color="green" click={despedida1}>
+            Click me <img src='/vite.svg'></img>
+          </MiBoton>
+          <Contenedor>
+          <Tutores />
+          <Titulo/>
+          <Item />
+          <hr />
+          <Container />
+          </Contenedor>
 
-        <hr />
+          <hr />
 
-        <Clicker/>
+          <Clicker/>
 
-        <hr />
+          <hr />
 
-        <Nosotros/>
+          <Nosotros/>
 
-        <hr />
+          <hr />
 
-        <UseRef/>
+          <UseRef/>
 
-        <hr />
+          <hr />
 
-        <UseRef2/>*/}
+          <UseRef2/>*/}
 
 
-      </BrowserRouter>
+        </BrowserRouter>
+
+    </CartContext.Provider>
+
+    
 
 
   )

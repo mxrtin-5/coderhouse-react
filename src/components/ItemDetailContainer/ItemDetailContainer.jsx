@@ -12,12 +12,12 @@ export const ItemDetailContainer = () =>{
 
     const { itemId } = useParams()
 
-    console.log(itemId) // esto devuelve lo que sea que pongas luego de /detail/...
+    // console.log(itemId) // esto devuelve lo que sea que pongas luego de /detail/...
     // /detail/pito => pito
     // /detail/true => true
     //no sabe que es un id a menos que se lo indiquemos
 
-    console.log(item)
+    // console.log(item)
 
     
     useEffect(()=>{

@@ -1,9 +1,13 @@
+import { useContext } from "react"
 import { useProductos } from "../../hooks/useProductos"
+import { CartContext } from "../../context/CartContext"
 
 
 
 
 export const Contacto = () =>{
+    const contexto = useContext(CartContext)
+
     const { productos } = useProductos()
     console.log(productos)
 

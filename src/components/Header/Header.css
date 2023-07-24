@@ -5,13 +5,14 @@
     
 }
 
-body{
-    background-color: rgb(24, 24, 24);
+header{
+    
     color: white;
 }
 
 .header_container{
     display: flex;
+    background-color: rgb(24, 24, 24);
     margin-bottom: 50px;
 }
 
@@ -29,4 +30,6 @@ body{
 .title:hover{
     color: blueviolet;
 }
+
+
 

@@ -6,13 +6,15 @@ export const ItemList = ({productos}) => {
 
     return (
 
-        <div className="container">
-
-            <div className='flex flex-row flex-wrap justify-center gap-2'>
-                {
-                    productos.map((el) => <ItemCard item={el}/>)
-                }
-            </div>
+        <div className="container catalogo__contenedor">
+            <h2 className="text-blue-800 text-4xl">Productos</h2>
+            <hr/>
+        
+        <div className='flex flex-row flex-wrap justify-center gap-2'>
+            {
+                productos.map((prod) => <ItemCard key={prod.id} item={prod}/>)
+            }
         </div>
+    </div>
     )
 }

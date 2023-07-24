@@ -5,15 +5,11 @@
     
 }
 
-header{
-    
-    color: white;
-}
-
 .header_container{
     display: flex;
     background-color: rgb(24, 24, 24);
     margin-bottom: 50px;
+    color: white;
 }
 
 .title{
@@ -29,6 +25,12 @@ header{
 
 .title:hover{
     color: blueviolet;
+}
+
+.header_container .div-mode{
+    display: grid;
+    place-items: center;
+    margin-left: 28%;
 }
 
 

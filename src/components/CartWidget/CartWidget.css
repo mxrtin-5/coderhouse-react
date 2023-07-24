@@ -1,0 +1,11 @@
+.icono {
+    position: absolute;
+    right: 90px;
+    display: grid;
+    place-items:center;
+    margin-top: 20px;
+}
+
+.cart-icon-ndeah{
+    text-decoration: none;
+}

@@ -5,6 +5,7 @@ import './ItemListContainer.css'
 import { ItemList } from '../ItemList/ItemList'
 //import { useProductos } from '../../hooks/useProductos'
 import { useParams } from 'react-router-dom'
+import { Loader } from '../Loader/Loader'
 
 
 
@@ -39,7 +40,7 @@ export const ItemListContainer = () => {
         <section>
             {
                 loading 
-                    ? <h2>Cargando...</h2>
+                    ? <Loader />
                     : <ItemList productos={productos}/>
             }
         </section>

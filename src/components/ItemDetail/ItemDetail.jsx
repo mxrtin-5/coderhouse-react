@@ -3,6 +3,7 @@ import { ItemCount } from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import { CartContext } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
+import { Memo } from '../../ejemplos/renderprops/Memo'
 
 
 
@@ -30,6 +31,8 @@ export const ItemDetail = ({item}) =>{
             <h2>{item.nombre}</h2>
             <img src={item.img} alt={item.nombre} />
             <p>Precio: ${item.price}</p>
+            <Memo/>
+            <p>{counter % 2 === 0 ? 'Hola mundo' : 'Chau mundo'}</p>
 
 
             {

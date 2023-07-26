@@ -1,10 +1,9 @@
-import { useContext, useState } from 'react'
+import { useContext, useMemo, useState } from 'react'
 import { ItemCount } from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import { CartContext } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
 import { Memo } from '../../ejemplos/renderprops/Memo'
-
 
 
 
@@ -14,7 +13,7 @@ export const ItemDetail = ({item}) =>{
 
     console.log(isInCart(item.id))
 
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(1)
 
     const handleAgregar = () =>{
         const newItem = {
@@ -25,9 +24,12 @@ export const ItemDetail = ({item}) =>{
         agregarAlCarrito(newItem)
     }
 
+    const fecha = useMemo(() => new Date(), [])
+    // haciendo esto, la funcion date se ejecuta solo cuando se monta el componente y no cada cada vez que se actualiza
 
     return(
         <div className="container my-5">
+            <h4>FyH: {fecha.toLocaleString()}</h4>
             <h2>{item.nombre}</h2>
             <img src={item.img} alt={item.nombre} />
             <p>Precio: ${item.price}</p>

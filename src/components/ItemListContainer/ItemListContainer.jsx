@@ -1,4 +1,3 @@
-import { pedirDatos } from '../../helpers/PedirDatos'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import './ItemListContainer.css'
@@ -6,6 +5,8 @@ import { ItemList } from '../ItemList/ItemList'
 //import { useProductos } from '../../hooks/useProductos'
 import { useParams } from 'react-router-dom'
 import { Loader } from '../Loader/Loader'
+import { collection, getDocs, query, where } from 'firebase/firestore'
+import { db } from '../../firebase/config'
 
 
 
@@ -20,19 +21,28 @@ export const ItemListContainer = () => {
     useEffect(()=>{
         setLoading(true)
 
-        pedirDatos()
-        .then(r=> {
-            if(categoryId){
-                setProductos( r.filter(prod => prod.category === categoryId) )
-            }else{
-                setProductos(r)
-            }
-            
-        })
-        .catch(e => console.log(e))
-        .finally(()=>{
-            setLoading(false)
-        })
+        
+        //1- armar la referencia
+        const productoRef = collection(db, 'productos') // db es la base de datos en cuestion y como segundo parametro que coleccion de esa base de datos
+        const q =categoryId
+                        ? query(productoRef, where('category', '==', categoryId))
+                        : productoRef
+        // aqui se hace una consulta QUERY, de PRODUCTOREF, donde (WHERE) la categoria sea === a CATEGORYID
+        //2- llamar a esa ref (async)
+        getDocs(q) //con la funcion getDocs llamo a la coleccion, que esta llama a la base de datos
+            .then((resp)=>{// entonces esto responde (RESP trae una snapshot de la coleccion, o sea el paquete que lo envuelve)
+                const docs = resp.docs.map((doc) => {
+                    return{
+                        id: doc.id,
+                        ...doc.data(),//para traer todo el contenido del documento en un solo objeto
+                    }
+                })// con esta informacion se accede a la propiedad docs de la misma, y que por cada documento, que extraiga el data (su informacion)
+                console.log(docs);// se muestra lo anterior
+                setProductos(docs)
+            })
+            .catch(e => console.log(e))
+            .finally(() => setLoading(false))
+
     }, [categoryId]);
 
     return (

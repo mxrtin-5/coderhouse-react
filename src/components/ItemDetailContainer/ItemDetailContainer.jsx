@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { pedirDatos } from "../../helpers/PedirDatos"
 import { useParams } from "react-router-dom"
 import { ItemDetail } from "../ItemDetail/ItemDetail"
 import { Loader } from "../Loader/Loader"
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "../../firebase/config"
 
 
 
@@ -24,12 +25,23 @@ export const ItemDetailContainer = () =>{
     useEffect(()=>{
         setLoading(true)
 
-        pedirDatos()
-        .then(r=>{
-            setItem(r.find(prod => prod.id === Number(itemId)) ) // aqui o que dice es
-            // que busque en la respuesta, el prod, cuyo id => la propiedad id de MOCK DATA sea igual al id ingresado, o sea el id que se paso por parametro
-        })
-        .finally(() => setLoading(false))
+        //1- armar la ref
+        const itemRef = doc(db, "productos", itemId )
+        //doc arma la referencia al documento, la referencia, o sea de donde se busca es de DB, luego el nombre de la coleccion, y luego se le dice que documento se requiere
+
+        //2- llamar a la ref
+        getDoc(itemRef)
+            .then((doc)=>{ //esto trae el snapshot del doc
+                console.log(doc.id)
+                console.log(doc.data());
+                setItem({ // y se setea a item, el id y el resto de los datos
+                    id: doc.id,
+                    ...doc.data()
+                })
+            })
+            .catch(e => console.log(e))
+            .finally(() => setLoading(false))
+
     }, [])
 
     return(
